@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import productData from "./data/products";
 import Header from "./components/Header";
 import Filters from "./components/Filter";
 import ProductList from "./components/Productlist";
 import Cart from "./components/Cart";
+import { getProducts } from "./api/getProducts";
 
 function App() {
   // ----- STATE -----
   const [products, setProducts] = useState([]);      // array state
   const [showCart, setShowCart] = useState(false);   // toggle state
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
@@ -19,13 +20,20 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  // ----- useEffect #1: load the fake data once on page load -----
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setProducts(productData);
-      setLoading(false);
-    }, 800);
-    return () => clearTimeout(timer); // cleanup
+    async function loadProducts() {
+      try {
+        const result = await getProducts();
+        setProducts(result.products);
+        setError(result.error);
+      } catch {
+        setError("Could not load any products.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
   }, []);
 
   // ----- useEffect #2: save the cart + update the tab title when the cart changes -----
@@ -70,6 +78,7 @@ function App() {
     const matchesCategory = category === "All" || p.category === category;
     return matchesSearch && matchesCategory;
   });
+  const categories = [...new Set(products.map((product) => product.category))].sort();
 
   // ----- UI -----
   return (
@@ -90,7 +99,10 @@ function App() {
         onSearchChange={setSearch}
         category={category}
         onCategoryChange={setCategory}
+        categories={categories}
       />
+
+      {error && <p className="error" role="status">{error}</p>}
 
       {loading ? (
         <p className="loading">Loading products...</p>

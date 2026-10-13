@@ -1,0 +1,17 @@
+[
+  { "id": 1, "name": "Water Bottle", "price": 12.99, "inStock": true, "category": "Home" },
+  { "id": 2, "name": "Sunglasses", "price": 24.5, "inStock": true, "category": "Fashion" },
+  { "id": 3, "name": "Backpack", "price": 39.0, "inStock": false, "category": "Fashion" },
+  { "id": 4, "name": "Headphones", "price": 59.99, "inStock": true, "category": "Electronics" },
+  { "id": 5, "name": "Desk Lamp", "price": 18.75, "inStock": false, "category": "Home" },
+  { "id": 6, "name": "Running Shoes", "price": 49.99, "inStock": true, "category": "Fashion" },
+  { "id": 7, "name": "Bluetooth Speaker", "price": 29.99, "inStock": true, "category": "Electronics" },
+  { "id": 8, "name": "Coffee Maker", "price": 44.0, "inStock": true, "category": "Home" },
+  { "id": 9, "name": "Smart Watch", "price": 89.99, "inStock": false, "category": "Electronics" },
+  { "id": 10, "name": "Throw Blanket", "price": 21.5, "inStock": true, "category": "Home" },
+  { "id": 11, "name": "Baseball Cap", "price": 14.99, "inStock": true, "category": "Fashion" },
+  { "id": 12, "name": "USB Charger", "price": 9.99, "inStock": true, "category": "Electronics" },
+  { "id": 13, "name": "Frying Pan", "price": 26.0, "inStock": true, "category": "Home" },
+  { "id": 14, "name": "Winter Jacket", "price": 79.0, "inStock": false, "category": "Fashion" },
+  { "id": 15, "name": "Wireless Mouse", "price": 19.99, "inStock": true, "category": "Electronics" }
+]

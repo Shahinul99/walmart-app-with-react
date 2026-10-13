@@ -1,6 +1,4 @@
-const categories = ["All", "Home", "Fashion", "Electronics"];
-
-function Filters({ search, onSearchChange, category, onCategoryChange }) {
+function Filters({ search, onSearchChange, category, onCategoryChange, categories }) {
   return (
     <div className="filters">
       <input
@@ -11,7 +9,7 @@ function Filters({ search, onSearchChange, category, onCategoryChange }) {
       />
 
       <div className="categories">
-        {categories.map((c) => (
+        {["All", ...categories].map((c) => (
           <button
             key={c}
             className={c === category ? "cat active" : "cat"} // conditional style
