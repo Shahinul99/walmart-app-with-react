@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import productData from "./data/products";
 import Header from "./components/Header";
-import Filters from "./components/Filters";
-import ProductList from "/components/ProductList";
+import Filters from "./components/Filter";
+import ProductList from "./components/Productlist";
 import Cart from "./components/Cart";
 
 function App() {
